@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<body>
+<audio id="bgm" src="Sheeple.mp3"></audio>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explanatory Page</title>
+<style>
+    body {
+        background-color: #000000;
+        color: #14C549;
+        font-size: 24px;
+        font-family: monospace;
+    }
+
+    #typewriter {
+        white-space: pre-wrap;
+    }
+
+    #text {
+        display: inline;
+    }
+	#cursor {
+		display: inline-block;
+		width: 10px;
+		height: 24px; /* matches your font size */
+		border-right: 2px solid #14C549;
+		vertical-align: bottom;
+		margin-left: 2px;
+		animation: blink 1s step-end infinite;
+	}
+
+    @keyframes blink {
+        0% { border-right-color: #14C549; }
+        50% { border-right-color: transparent; }
+        100% { border-right-color: #14C549; }
+    }
+	.title{
+	    color: #14C549;
+        font-size: 45px;
+		text-align: center; 
+	} 
+	h1 {
+		margin-bottom: 0px;
+	} 
+	#typewriter {
+		white-space: pre-wrap;
+		padding-left: 25px; /* adjust this number */
+	}
+.center-text { 
+		color: #14C549;
+		text-align: center; 
+		}
+	a {
+		color: #14C549;
+		text-decoration: none;
+		animation: fadePulse 4s infinite;
+		transition: opacity 2.0s;
+	}
+	a:hover {
+		animation: none;
+		transition: opacity: 1
+	}
+	@keyframes fadePulse {
+		0%   { opacity: 0.35; }
+		50%  { opacity: 1; }
+		100% { opacity: 0.3; }
+	}
+
+</style>
+<h1 class="title">A.H.A.</h1>
+<div id="typewriter">
+<span id="text"></span><span id="cursor"></span>
+</div>
+<script>
+	setTimeout(() => {
+		document.getElementById("bgm").play();
+	}, 20000); // 2000ms = 2 seconds delay
+
+const paragraph =
+`This is the Amarican Hackers Associaton (A.H.A) we are comprised of individuals that
+believe Amaricans are being controled and numbed by socal media, music, A.I., news outlets
+and other. Our goal is to break the gross misuse of these tools and enpower the public 
+to think critically discerning what is truth and to stand for what is right. We are not 
+sheep brainlessly following a leader and if so who are we really following? why? and what for?
+[This statement will be updated over time {music = Sheeple by Tom MacDonald}] `;
+    let index = 0;
+    const speed = 65;
+    const textSpan = document.getElementById("text");
+
+    function type() {
+        if (index < paragraph.length) {
+            textSpan.textContent += paragraph[index];
+            index++;
+            setTimeout(type, speed);
+        }
+    }
+
+    type();
+</script>
+<h5 class="center-text"> <a href="Joining A.H.A.html" style= "color: #14C549; text-decoration: none;"> Join A.H.A. </a> </h5>
+</body>
+</html>
